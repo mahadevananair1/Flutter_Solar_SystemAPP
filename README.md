@@ -6,5 +6,6 @@
 #### maintained by the Clod Nati Coputig Fondaton
 
 ![alt text](https://github.com/mahadevananair1/Revival-SolarSystems.inc/blob/master/Screenshot_20210827-233443.png)
+![alt_text](https://github.com/mahadevananair1/Revival-SolarSystems.inc/blob/master/Screenshot2.png)
 
 
