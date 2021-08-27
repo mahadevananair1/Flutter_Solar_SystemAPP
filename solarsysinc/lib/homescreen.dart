@@ -15,13 +15,20 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: gradientEndColor,
       body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [gradientStartColor, gradientEndColor],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
         child: SafeArea(
             child: Column(
           children: [
             Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -84,6 +91,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                         fontWeight: FontWeight.bold),
                                     textAlign: TextAlign.left,
                                   ),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
                                   Row(
                                     children: [
                                       Text(
@@ -110,10 +120,41 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   );
                 },
+                pagination: SwiperPagination(
+                    builder: DotSwiperPaginationBuilder(
+                        activeColor: Colors.amber, space: 5, activeSize: 12)),
               ),
             )
           ],
         )),
+      ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+          color: Colors.white,
+        ),
+        padding: EdgeInsets.all(20),
+        // color: Colors.white,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: Image.asset('assets/images/menu_icon.png'),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Image.asset('assets/images/search_icon.png'),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Image.asset('assets/images/profile_icon.png'),
+            ),
+          ],
+        ),
       ),
     );
   }
