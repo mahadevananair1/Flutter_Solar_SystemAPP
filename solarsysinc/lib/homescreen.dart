@@ -54,26 +54,59 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 100,
                           ),
                           Card(
+                            elevation: 8,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30)),
                             color: Colors.white,
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                  height: 100,
-                                ),
-                                Text(
-                                  planets[index].name,
-                                  style: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 44,
-                                      color: const Color(0xff47455f),
-                                      fontWeight: FontWeight.bold),
-                                  textAlign: TextAlign.left,
-                                ),
-                              ],
+                            child: Padding(
+                              padding: const EdgeInsets.all(32.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    height: 100,
+                                  ),
+                                  Text(
+                                    planets[index].name,
+                                    style: TextStyle(
+                                        fontFamily: 'Roboto',
+                                        fontSize: 44,
+                                        color: const Color(0xff47455f),
+                                        fontWeight: FontWeight.bold),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                  Text(
+                                    'solar system',
+                                    style: TextStyle(
+                                        fontFamily: 'Roboto',
+                                        fontSize: 18,
+                                        color: const Color(0xff47455f),
+                                        fontWeight: FontWeight.bold),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        'Know More',
+                                        style: TextStyle(
+                                            fontFamily: 'Oswald',
+                                            fontSize: 18,
+                                            color: const Color(0xffe4979e),
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      Icon(
+                                        Icons.arrow_forward,
+                                        color: secondaryTextColor,
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                           )
                         ],
-                      )
+                      ),
+                      Image.asset(planets[index].iconImage),
                     ],
                   );
                 },
