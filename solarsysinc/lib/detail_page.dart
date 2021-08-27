@@ -98,9 +98,13 @@ class DetailPage extends StatelessWidget {
             ),
             Positioned(
               right: -64,
-              child: Image.asset(planetInfo.iconImage),
+              width: 350,
+              child: Hero(
+                  tag: planetInfo.position,
+                  child: Image.asset(planetInfo.iconImage)),
             ),
             Positioned(
+              left: 10,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
@@ -108,8 +112,8 @@ class DetailPage extends StatelessWidget {
                   style: TextStyle(
                       fontFamily: 'PoiretOne',
                       fontSize: 250,
-                      color: primaryTextColor.withOpacity(0.6),
-                      fontWeight: FontWeight.w900),
+                      color: primaryTextColor.withOpacity(0.2),
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             )

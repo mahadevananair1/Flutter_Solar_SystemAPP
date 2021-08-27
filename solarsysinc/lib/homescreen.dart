@@ -128,7 +128,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             )
                           ],
                         ),
-                        Image.asset(planets[index].iconImage),
+                        Hero(
+                          tag: planets[index].position,
+                          child: Image.asset(planets[index].iconImage),
+                        )
                       ],
                     ),
                   );
