@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:solarsysinc/colors.dart';
 
 import 'data.dart';
+import 'detail_page.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -53,76 +54,89 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemWidth: MediaQuery.of(context).size.width - 2 * 64,
                 layout: SwiperLayout.STACK,
                 itemBuilder: (context, index) {
-                  return Stack(
-                    children: [
-                      Column(
-                        children: [
-                          SizedBox(
-                            height: 100,
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder: (context, a, b) => DetailPage(
+                            planetInfo: planets[index],
                           ),
-                          Card(
-                            elevation: 8,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30)),
-                            color: Colors.white,
-                            child: Padding(
-                              padding: const EdgeInsets.all(32.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(
-                                    height: 100,
-                                  ),
-                                  Text(
-                                    planets[index].name,
-                                    style: TextStyle(
-                                        fontFamily: 'Roboto',
-                                        fontSize: 44,
-                                        color: const Color(0xff47455f),
-                                        fontWeight: FontWeight.bold),
-                                    textAlign: TextAlign.left,
-                                  ),
-                                  Text(
-                                    'solar system',
-                                    style: TextStyle(
-                                        fontFamily: 'Roboto',
-                                        fontSize: 18,
-                                        color: const Color(0xff47455f),
-                                        fontWeight: FontWeight.bold),
-                                    textAlign: TextAlign.left,
-                                  ),
-                                  SizedBox(
-                                    height: 30,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Text(
-                                        'Know More',
-                                        style: TextStyle(
-                                            fontFamily: 'Oswald',
-                                            fontSize: 18,
-                                            color: const Color(0xffe4979e),
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                      Icon(
-                                        Icons.arrow_forward,
-                                        color: secondaryTextColor,
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
+                        ),
+                      );
+                    },
+                    child: Stack(
+                      children: [
+                        Column(
+                          children: [
+                            SizedBox(
+                              height: 100,
                             ),
-                          )
-                        ],
-                      ),
-                      Image.asset(planets[index].iconImage),
-                    ],
+                            Card(
+                              elevation: 8,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30)),
+                              color: Colors.white,
+                              child: Padding(
+                                padding: const EdgeInsets.all(32.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(
+                                      height: 100,
+                                    ),
+                                    Text(
+                                      planets[index].name,
+                                      style: TextStyle(
+                                          fontFamily: 'Roboto',
+                                          fontSize: 44,
+                                          color: const Color(0xff47455f),
+                                          fontWeight: FontWeight.bold),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                    Text(
+                                      'solar system',
+                                      style: TextStyle(
+                                          fontFamily: 'Roboto',
+                                          fontSize: 18,
+                                          color: const Color(0xff47455f),
+                                          fontWeight: FontWeight.bold),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                    SizedBox(
+                                      height: 30,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'Know More',
+                                          style: TextStyle(
+                                              fontFamily: 'Oswald',
+                                              fontSize: 18,
+                                              color: const Color(0xffe4979e),
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                        Icon(
+                                          Icons.arrow_forward,
+                                          color: secondaryTextColor,
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        Image.asset(planets[index].iconImage),
+                      ],
+                    ),
                   );
                 },
                 pagination: SwiperPagination(
-                    builder: DotSwiperPaginationBuilder(
-                        activeColor: Colors.amber, space: 5, activeSize: 12)),
+                  builder: DotSwiperPaginationBuilder(
+                      activeColor: Colors.amber, space: 5, activeSize: 12),
+                ),
               ),
             )
           ],
